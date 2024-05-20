@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab</string>
+    <string name="project_name">Project Name</string>
+    <string name="project_deadline">Project Deadline</string>
+    <string name="project_description">Project Description</string>
+    <string name="save">Save</string>
+    <string name="add_project">Add Project</string>
+</resources>
