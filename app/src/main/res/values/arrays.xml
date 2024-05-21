@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="sort_by_options">
+        <item>Deadline</item>
+        <item>Type</item>
+        <item>Status</item>
+    </string-array>
+</resources>

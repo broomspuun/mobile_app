@@ -3,10 +3,8 @@ package com.example.android.lab.data
 import androidx.lifecycle.LiveData
 
 class MilestoneRepository(private val milestoneDao: MilestoneDao) {
-
-    fun getMilestonesForProject(projectId: Long): LiveData<List<Milestone>> {
-        return milestoneDao.getMilestonesForProject(projectId)
-    }
+    fun getMilestonesForProject(projectId: Int): LiveData<List<Milestone>> =
+        milestoneDao.getMilestonesForProject(projectId)
 
     suspend fun insert(milestone: Milestone) {
         milestoneDao.insert(milestone)

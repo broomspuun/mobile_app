@@ -14,30 +14,42 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:context=".ui.ProjectDetailFragment">
+        tools:context=".ui.TaskDetailFragment">
 
         <EditText
-            android:id="@+id/projectName"
+            android:id="@+id/taskName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Project Name" />
+            android:hint="Task Name" />
 
         <EditText
-            android:id="@+id/projectDeadline"
+            android:id="@+id/taskDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Project Deadline" />
+            android:hint="Task Description" />
 
         <EditText
-            android:id="@+id/projectDescription"
+            android:id="@+id/taskType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Project Description" />
+            android:hint="Task Type" />
+
+        <EditText
+            android:id="@+id/taskStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Status" />
+
+        <EditText
+            android:id="@+id/taskDeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Deadline" />
 
         <Button
-            android:id="@+id/saveProjectButton"
+            android:id="@+id/saveTaskButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save Project" />
+            android:text="Save Task" />
     </LinearLayout>
 </layout>

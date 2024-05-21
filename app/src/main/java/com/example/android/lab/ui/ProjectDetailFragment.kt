@@ -32,7 +32,7 @@ class ProjectDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        projectViewModel = ViewModelProvider(requireActivity()).get(ProjectViewModel::class.java)
+        projectViewModel = ViewModelProvider(requireActivity())[ProjectViewModel::class.java]
         binding.viewModel = projectViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
@@ -40,13 +40,13 @@ class ProjectDetailFragment : Fragment() {
         projectDeadlineEditText = binding.projectDeadline
         projectDescriptionEditText = binding.projectDescription
 
-        projectViewModel.currentProject.observe(viewLifecycleOwner, { project ->
+        projectViewModel.currentProject.observe(viewLifecycleOwner) { project ->
             project?.let {
                 projectNameEditText.setText(it.name)
                 projectDeadlineEditText.setText(it.deadline)
                 projectDescriptionEditText.setText(it.description)
             }
-        })
+        }
 
         binding.saveProjectButton.setOnClickListener {
             val name = projectNameEditText.text.toString()
@@ -57,13 +57,13 @@ class ProjectDetailFragment : Fragment() {
             if (currentProject != null) {
                 val updatedProject = currentProject.copy(name = name, deadline = deadline, description = description)
                 if (currentProject.id == 0) {
-                    projectViewModel.insert(updatedProject)
+                    projectViewModel.insertProject(updatedProject)
                 } else {
-                    projectViewModel.update(updatedProject)
+                    projectViewModel.updateProject(updatedProject)
                 }
             } else {
                 val newProject = Project(name = name, deadline = deadline, description = description)
-                projectViewModel.insert(newProject)
+                projectViewModel.insertProject(newProject)
             }
             findNavController().navigateUp()
         }

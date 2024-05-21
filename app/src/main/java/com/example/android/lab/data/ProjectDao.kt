@@ -14,6 +14,12 @@ interface ProjectDao {
     @Delete
     suspend fun delete(project: Project)
 
-    @Query("SELECT * FROM projects ORDER BY deadline ASC")
+    @Query("SELECT * FROM projects")
     fun getAllProjects(): LiveData<List<Project>>
+
+    @Query("SELECT * FROM projects WHERE id = :id")
+    suspend fun getProjectById(id: Int): Project
 }
+
+
+

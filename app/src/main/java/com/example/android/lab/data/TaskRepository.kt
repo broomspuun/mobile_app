@@ -1,20 +1,14 @@
 package com.example.android.lab.data
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 
 class TaskRepository(private val taskDao: TaskDao) {
+    fun getTasksForProject(projectId: Int): LiveData<List<Task>> =
+        taskDao.getTasksForProject(projectId)
 
-    fun getTasksForProject(projectId: Long): LiveData<List<Task>> {
-        return taskDao.getTasksForProject(projectId)
-    }
-
-    fun getTasksForMilestone(milestoneId: Long): LiveData<List<Task>> {
-        return taskDao.getTasksForMilestone(milestoneId)
-    }
-
-    fun getAllTasks(): LiveData<List<Task>> {
-        return taskDao.getAllTasks()
-    }
+    fun getTasksForMilestone(milestoneId: Int): LiveData<List<Task>> =
+        taskDao.getTasksForMilestone(milestoneId)
 
     suspend fun insert(task: Task) {
         taskDao.insert(task)
@@ -28,3 +22,4 @@ class TaskRepository(private val taskDao: TaskDao) {
         taskDao.delete(task)
     }
 }
+
