@@ -8,8 +8,11 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.android.lab.R
 import com.example.android.lab.data.Project
 import com.example.android.lab.databinding.FragmentProjectDetailBinding
+
+
 import com.example.android.lab.viewmodel.ProjectViewModel
 
 class ProjectDetailFragment : Fragment() {
@@ -66,6 +69,14 @@ class ProjectDetailFragment : Fragment() {
                 projectViewModel.insertProject(newProject)
             }
             findNavController().navigateUp()
+        }
+
+        binding.addMilestoneButton.setOnClickListener {
+            findNavController().navigate(R.id.action_projectDetailFragment_to_milestoneListFragment)
+        }
+
+        binding.addTaskButton.setOnClickListener {
+            findNavController().navigate(R.id.action_projectDetailFragment_to_taskListFragment)
         }
     }
 }

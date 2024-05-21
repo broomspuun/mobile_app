@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_projectDetailFragment_to_milestoneListFragment"
             app:destination="@id/milestoneListFragment" />
+        <action
+            android:id="@+id/action_projectDetailFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment" />
     </fragment>
 
     <fragment
